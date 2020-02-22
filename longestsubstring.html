@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Finding Substring Length </title>
+</head>
+<body style="background-color: #65587f; color: white;">
+	<div style="margin: 2%; padding: 2%; border 1px;">
+		<h3 style="font-size: 30px; text-align: center;">
+			Finding Highest Substring Length without repeating the characters
+		</h3>
+		<div style="margin-bottom:20px;">
+			<label style="font-size: 20px">
+				Input String:
+			</label>
+			<input type="text" style="font-size: 20px" id="userInputString" pattern="[A-Za-z]" />
+		<button onclick=longestSubstr() style="margin-left: 10%;font-size: 20px;">Find the value</button>
+		<div>
+		</br>
+		</br>
+		</br>
+		</br>
+		<div>
+			<label style="font-size: 20px">
+				The length of the longest string is
+			</label>
+			<input type="text" id="subStringLength" style="margin-left: 8%; text-align: center; font-size: 20px" />
+		</div>
+	 
+	</div>
+</body>
+
+
+<script>
+function longestSubstr() {
+	var str = document.getElementById("userInputString").value;
+	if(str){
+		var longest = 0, tmp = [];
+		for (const char of str){
+			const idx = tmp.indexOf(char);
+			if (idx > -1) { 
+				tmp = tmp.slice(idx + 1) 
+			}
+			tmp.push(char);    
+			if (tmp.length > longest) { 
+				longest = tmp.length 
+			}
+		}
+		document.getElementById("subStringLength").value = longest;
+	}
+	else {
+		alert("Input string only");
+	}
+		
+}
+</script>
+
+</html>
